@@ -1,2 +1,2 @@
-# bulls_and_cows
-Python implementation of the infamous bulls & cows game
+# Bulls & Cows
+Python implementation of the infamous game with the same name.
