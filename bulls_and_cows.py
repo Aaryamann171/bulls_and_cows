@@ -1,14 +1,15 @@
 import random
+from typing import List, Tuple, Optional
 
-def welcome_messages():
+def welcome_messages() -> None:
     print("# Welcome to the Bulls and Cow game!")
     print("Too lazy to type out rules, you can refer to the link below")
     print("https://en.wikipedia.org/wiki/Bulls_and_Cows")
     print("Let's Begin", end="\n\n")
 
-def secret_code_generator():
+def secret_code_generator() -> Tuple[List[int], int]:
     secret_code = []
-    num_list = [x for x in range(1,9)]
+    num_list = [x for x in range(1,10)]
     for i in range(4):
         rand_indx = random.randint(1, len(num_list)-1)
         x = num_list.pop(rand_indx)
@@ -16,7 +17,7 @@ def secret_code_generator():
     original_num = int("".join([str(x) for x in secret_code]))
     return secret_code, original_num
 
-def user_input():
+def user_input() -> Optional[List[int]]:
     # quit if user types one of these commands
     quit_messages = ["quit", "exit", "q", "ex"]
     guess = input("Enter you guess: ")
@@ -33,17 +34,23 @@ def user_input():
         print("NOTE: all numbers are unique")
     return guess_list
 
-def bulls(l1, l2): # correct guess in the correct position
+def bulls(l1, l2) -> int: 
+    """
+    correct guess in the correct position
+    """
     bulls = 0
     for i in range(4):
         if l1[i] == l2[i]:
             bulls += 1
     return bulls
 
-def common_nums(l1, l2): # correct guess but not in the correct position
+def common_nums(l1, l2) -> int: 
+    """
+    correct guess but not in the correct position
+    """
     return len(set(l1).intersection(set(l2)))
 
-def main():
+def main() -> None:
     welcome_messages()
     game_on_flag = 1
     secret_code, original_num = secret_code_generator()
