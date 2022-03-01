@@ -8,7 +8,7 @@ def welcome_messages():
 
 def secret_code_generator():
     secret_code = []
-    num_list = [x for x in range(1,10)]
+    num_list = [x for x in range(1,9)]
     for i in range(4):
         rand_indx = random.randint(1, len(num_list)-1)
         x = num_list.pop(rand_indx)
